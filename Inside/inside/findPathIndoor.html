@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>搜索输入提示</title>
+	<link rel="stylesheet" href="lib/bootstrap.min.css">
+	<link href=" css/style.css" rel="stylesheet">
+</head>
+<body>
+	<div id="fengMap" ></div>
+	<div id="tutu" >室内寻径-小组作业</div>
+	<!--导航部分-->
+	<!--操作按钮-->
+	<button class="btn btn-default navigation" id="navigation">开始导航</button>	
+
+	<!--定位按钮-->
+    <div class="middle-img-div loc-img" id="locImg">
+        <img alt="" src="image/position_cilck.png" />
+    </div>
+
+    <!--第一人称和第三人称切换按钮-->
+    <div class="middle-img-div authority-img" id="authorityImg">
+        <img alt="" src="image/person_first.png" />
+    </div>
+
+    <!--距离时间显示-->
+	<div id="description1" ></div>
+	
+	
+	<!--操作按钮-->
+	<button class="btn btn-default navigation" id="path">查找路线</button>	
+	<!--搜索框-->
+	<div class="search" >
+	<input type="text" class="form-control"  placeholder="搜索"  id="seachText">
+		<ul id="hotwords" class="hotwords" style="display:none">
+		</ul>
+	</div>
+	
+	<!--搜索出来的数据显示在table-->
+	<div id="table-container">
+		<div class="title"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>
+		<table class="table table-bordered table-hover" id="table">
+			<thead>
+				<tr>					
+					<th>商店名称</th>
+					<th>楼层</th>
+				</tr>
+			</thead>
+			<tbody id="table-body">
+			</tbody>
+		</table>
+	</div>
+	<div id="description" ></div>
+	<script src="lib/jquery-2.1.4.min.js"></script>
+	<script src="lib/fengmap.min.js"></script>
+	<script src="lib/bootstrap.min.js"></script>
+	<script>
+		//获取版本号,设置title
+		document.title='室内寻径-爱琴海商场'; 
+
+		//定义全局map变量
+		var map;
+		var fmapID = '10347';
+		// 设置模糊搜索
+		var searchAnalyser;
+		var layer=null;
+		//控制指北针显示/隐藏
+		var compassVisible = true;
+		// 导航对象
+		var navi;	
+		var selectModel;
+		// 控制路径规划按钮
+		var path = true; 
+		// 设置起点
+		var firstCoord;
+		// 设置终点
+		var lastCoord;
+		//第一人称、第三人称控制开关；定位跟随开关
+		var others = true,follow = true;
+		//导航开关
+		var navigation = true; 
+
+		window.onload = function() {
+		if (navi) {
+				navi.stop();
+				navi = null;
+			}
+		//楼层控制控件配置参数
+			var ctlOpt = new fengmap.controlOptions({
+				//默认在右上角
+				position: fengmap.controlPositon.RIGHT_TOP,
+				//默认显示楼层的个数
+				showBtnCount: 7, 
+				//初始是否是多层显示，默认单层显示
+				allLayer:false,   
+				//位置x,y的偏移量
+				offset: {
+					x: 20,
+					y: 10
+				}
+			});
+			map = new fengmap.FMMap({
+				//渲染dom
+				container: document.getElementById('fengMap'),
+				//地图数据位置
+				mapServerURL: './data/' + fmapID,
+				//主题数据位置
+				mapThemeURL: 'data/theme',
+				//设置主题
+				defaultThemeName: '3008',
+				// 默认比例尺级别设置为20级 
+				defaultMapScaleLevel: 20,
+				//是否对不可见图层启用透明设置 默认为true
+				focusAlphaMode: true,
+				//对不聚焦图层启用透明设置，当focusAlphaMode = true时有效
+				focusAlpha: 0.1,	
+				//开启2维，3维切换的动画显示
+				viewModeAnimateMode: true,
+				//设置倾斜角，默认倾斜角为60度
+				defaultTiltAngle: 30,
+				key: 'eb2c3f083b902bbc4ba73b8b7ed2f71f',
+				//开发者申请应用名称
+				appName: '室内的gis',
+							
+			});
+
+			//打开Fengmap服务器的地图数据和主题
+			map.openMapById(fmapID);	//sceneId
+
+			//地图加载完成回调
+			map.on('loadComplete', function() {    
+			//创建楼层(按钮型)，创建时请在地图加载后(loadComplete回调)创建。
+				groupControl = new fengmap.scrollGroupsControl(map, ctlOpt);
+
+				//设置显示多层
+				map.visibleGroupIDs = map.groupIDs; 
+				
+				searchAnalyser = map.searchAnalyser; //获取搜索类
+				//设置焦点层
+						map.focusGroupID = map.groupIDs[0];
+
+						//保持多层和楼层切换一致
+						groupControl.onChange(function(groups, allLayer) {
+							//切换楼层时通过焦点层获取当前层的路径数据
+						cardInfo(map.focusGroupID);
+					});
+				//起点终点坐标
+				//var points = [
+					//{x: 12961647.576796599,y: 4861814.63807118,groupID: 1},
+					//{x//: 12961699.79823795,y: 4861826.46384646,groupID: 6}
+				//];
+
+				// 地图加载完执行画导航路径
+				//createrNavi(points); 
+			});
+
+			var oSeachText=document.querySelector('#seachText');
+			var oTable_container = document.querySelector('#table-container');
+			var oHotwords=document.querySelector('#hotwords');
+
+			 //根据FID查询
+			function findCoordinate(fid) {
+				oHotwords.style.display='none';
+				var searchReq = new fengmap.FMSearchRequest(fengmap.FMNodeType.MODEL);		//设置查询地图元素类型
+				searchReq.FID(fid);
+				searchAnalyser.query(searchReq, function(request, result) {
+					 //result 为查询到的结果集。
+					var models = result[0];
+					if (models != null) {
+						filldata(models);
+						oTable_container.style.display='block';
+					} else {
+						oTable_container.style.display='none';
+					}
+				});
+			};
+			
+			//添加Marker
+			function addMarkers(gid,X,Y) {
+				removeMarkers();
+				var group = map.getFMGroup(gid);
+
+				//返回当前层中第一个imageMarkerLayer,如果没有，则自动创建
+				var layer = group.getOrCreateLayer('imageMarker');
+				
+				var im = new fengmap.FMImageMarker({
+					x:X,
+					y:Y,
+					url: 'image/blueImageMarker.png',
+					size: 32,
+					callback:function() {
+						im.alwaysShow();
+					}
+				});
+				layer.addMarker(im);
+			};
+
+			//定位跳转
+			function moveTo(coord) {
+				map.visibleGroupIDs = [coord.groupID];
+				map.focusGroupID = coord.groupID;
+				map.moveTo(coord);
+			};
+
+			//删除Marker
+			function removeMarkers() {
+				//获取多楼层Marker
+				map.callAllLayersByAlias('imageMarker',  function(layer) {
+					layer.removeAll();
+				});
+			};
+			
+			//根据关键字查询店铺
+			oSeachText.addEventListener('keyup',function(e){
+				var keyword = this.value;
+				if(keyword!=='搜索'&&keyword!==' '){
+					var searchReq = new fengmap.FMSearchRequest(fengmap.FMNodeType.MODEL);
+					searchReq.keyword(keyword);
+					searchAnalyser.query(searchReq, function(request, result) {
+						var models = result;
+						if (models != null && models.length > 0) {
+							oHotwords.style.display='block';
+							createLi(models);
+						} else {
+							oTable_container.style.display='none';
+							oHotwords.style.display='none';
+						}
+					});
+				}
+			});
+
+			//创建提示下拉框
+			 var createLi=function(data){
+			 	oHotwords.innerHTML='';
+			 	 var li='';
+			 	for (var i in data) {
+		                var model = data[i];
+		                li+='<li data-id="'+model.FID+'">'+(!model.name ? "空" : model.name)+'</li>';
+	            }
+
+	            oHotwords.innerHTML=li;
+	            var aLi=oHotwords.getElementsByTagName('li');
+	            for(var i=0; i<aLi.length; i++){
+	            	(function(i){
+	            		aLi[i].onclick=function(){
+	            			var index=i;
+	            			oSeachText.value=this.innerHTML;
+	            			var fid=this.attributes["data-id"].nodeValue;
+	            			findCoordinate(fid);
+	            			 oHotwords.style.display='none';
+	            		}
+	            	})(i);
+	            }
+			 }
+			 
+			 //填充表格数据
+			function filldata(model) {
+				var oTable = document.querySelector('#table');
+		        var oTableBody = document.querySelector('#table-body');
+		        var aTr = oTable.getElementsByTagName('tr');
+		        oTableBody.innerHTML = '';
+
+				addMarkers(model.groupID,model.mapCoord.x,model.mapCoord.y);
+				
+				var coord = {
+						x: model.mapCoord.x,
+						y:  model.mapCoord.y,
+						groupID: model.groupID
+					};
+					selectModel = {
+						x: model.mapCoord.x,
+						y:  model.mapCoord.y,
+						groupID: model.groupID
+					};
+				moveTo(coord); //定位跳转
+
+				//地图上当前设置的模型元素处于高亮状态。
+				//如果最后一个参数设置为true,storeSelect(model,true,true)，表示之前的和当前的模型都处于高亮转态。可使用map.selectNull()方法清除。
+				map.storeSelect(model, true, false);
+				oTableBody.innerHTML= '<tr class="active"><td>' + (!model.name ? "空" : model.name) + '</td><td>' +'F'+ model.groupID + '</td></tr>';
+
+				for (var i = 0; i < aTr.length; i++) { 
+		        	(function(i) {
+		                aTr[i].onclick = function() {
+		                    var index = i;
+		                    if (index <= 0) return;		                   
+		                    var gid = parseInt(this.cells[3].innerText);
+		                    //var id = parseInt(this.cells[1].innerText);
+		                    var index = parseInt(this.cells[0].innerText);
+
+		                    var coord = {
+								x: x,
+								y: y,
+								z: z,
+								groupID: gid
+							};
+							moveTo(coord); //定位跳转
+
+							map.storeSelect(model, true, false);
+		                }
+		            })(i);
+	        	}
+			}
+			
+			 //关闭按钮
+		    var oTitle = document.querySelectorAll('.title')[0];
+		    oTitle.onclick = function() {
+		        oTable_container.style.display = 'none';
+		    };
+			
+			//显示指北针
+			map.showCompass = compassVisible;
+
+			// 点击指南针事件, 使角度归0
+			map.on('mapClickCompass',function() {
+				map.rotateTo({
+					//设置角度
+					to: 0,
+					//动画持续时间，默认为。3秒
+					duration: .3,
+					callback: function() { //回调函数
+						// console.log('rotateTo complete!');
+					}
+				})
+			});
+			
+			//获取某一层的路径信息
+			function cardInfo(gid) {
+				var oDescription = document.getElementById('description');
+				//获取某一层的路径数据
+				var navidistance = navi.naviGroupsDistance[gid];
+					
+				var navidistance = null;
+
+				for (var i = 0; i < navi.naviGroupsDistance.length; i++) {
+					var data = navi.naviGroupsDistance[i];
+					if (data.groupID === gid) {
+						navidistance = data.distance;
+						break;
+					}
+				}
+
+				//如果是中间层，则为0
+				if (navidistance) {
+					var naviDistance = navidistance.toFixed(1); //得到距离
+					//普通人每分钟走80米。
+					var time = naviDistance / 80;
+
+					var m = parseInt(time);
+
+					var s = Math.ceil((time % 1) * 60);
+
+					oDescription.innerHTML = '<p>当前层：' + gid + ' </p><p>该楼层路径距离：' + naviDistance + '  米     </p><p>大约需要：  ' + m + '  分钟   ' + s + '   秒</p>';
+				} else {
+					oDescription.innerHTML = '<p>当前层：' + gid + ' </p><p>该楼层路径距离：0  米     </p><p>大约需要： 0 分钟   0   秒</p>';
+				}
+			};
+			$('#path').on('click', function() {
+					if (path) {
+						//设置焦点层
+						//map.focusGroupID = map.groupIDs[0];
+
+						//保持多层和楼层切换一致
+						groupControl.onChange(function(groups, allLayer) {
+							//切换楼层时通过焦点层获取当前层的路径数据
+						cardInfo(map.focusGroupID);
+					});
+					//设置起点
+					firstCoord = {
+						x: 12961647.576796599,
+						y: 4861814.63807118,
+						groupID: 1
+					};
+					//设置终点
+					lastCoord = {
+						x: selectModel.x,
+						y: selectModel.y,
+						groupID: selectModel.groupID
+					};
+					var points = [
+					{x: firstCoord.x,y: firstCoord.y,groupID: firstCoord.groupID},
+					{x: lastCoord.x, y: lastCoord.y, groupID: lastCoord.groupID}
+					];
+				createrNavi(points); 
+				$(this).addClass('btn-primary');
+				$('#path').html("重新查找路径");
+				}
+				else if(!path){
+					// 清除div
+					var oDescription = document.getElementById('description');
+					var oDescription1 = document.getElementById('description1');
+					oDescription.innerHTML = null;
+					oDescription1.innerHTML = null;
+					// 清除路径
+					navi.clearAll();
+					// 清除终点
+					lastCoord = null;
+					$(this).removeClass('btn-primary');
+					$('#path').html("查找路线");
+				}
+				// 变换path为true or false
+				path = !path
+			});
+		
+			//创建导航路线
+			function createrNavi(coord) {
+				//初始化导航对象
+				navi = new fengmap.FMNavigation({
+					map: map,
+					locationMarkerUrl: 'image/pointer.png',
+					//设置Marker尺寸
+					locationMarkerSize: 43,
+					//设置跟随定位的默认为true
+					followPosition: true,
+					//设置地图是否选择，默认false	
+					followAngle: true,
+					//导航跟随倾斜角度		
+					tiltAngle: 80,
+					//导航跟随显示级别
+					scaleLevel: 0,
+					// 设置导航线的样式
+					lineStyle: {
+						//设置线为导航线样式
+						lineType: fengmap.FMLineType.FMARROW,
+						// 设置线的宽度
+						lineWidth: 6,
+						//设置线的颜色
+						// godColor: '#FF0000',   
+						//设置边线的颜色
+						// godEdgeColor: '#920000',   
+					}
+											
+				});
+
+				// 设置导航事件
+				navi.on('walking',function(data) {
+					cardInfo1(data);
+				});
+
+				//导航路径结束事件
+				navi.on('complete',function() {
+				navigation = true;
+				//楼层控件可点击
+				groupControl.enableExpand=true;
+					$('#navigation').removeClass('btn-primary');
+				});
+
+				//路径跨楼层事件
+				navi.on('crossGroup',function(groupID) {});
+				
+				//添加起点
+				navi.setStartPoint({
+					x: coord[0].x,
+					y: coord[0].y,
+					groupID: coord[0].groupID,
+					url: 'image/start.png',
+					size: 32
+				});
+
+				//添加终点
+				navi.setEndPoint({
+					x: coord[1].x,
+					y: coord[1].y,
+					groupID: coord[1].groupID,
+					url: 'image/end.png',
+					size: 32
+				});
+
+				// 画出导航路径
+				navi.drawNaviLine();
+
+				//根据焦点层得到路径数据
+				cardInfo(map.focusGroupID); 
+			};
+			//显示路径数据
+			function cardInfo1(data) {
+				//距终点的距离
+				distance = data.remain;
+				//路线提示信息
+				var prompt = navi.naviDescriptions[data.index];
+
+				if (distance < 1) {
+					distance = 0
+					var prompt = '到达终点';
+				}
+
+				//普通人每分钟走80米。
+				var time = distance / 80;
+
+				var m = parseInt(time);
+
+				var s = Math.floor((time % 1) * 60);
+
+				$('#description1').html('<p>距终点：' + distance.toFixed(1) + ' 米</p><p>大约需要：  ' + m + '  分钟   ' + s + '   秒</p><p>路线提示：' + prompt + ' </p>');
+
+				$('.layerMask').html('F' + data.groupID);
+			};
+
+			//开始导航
+			$('#navigation').on('click', function() {
+				if (navigation) {
+					navigation = false;
+					//导航开始
+					navi.simulate();
+					$(this).addClass('btn-primary');
+				}
+
+			});
+
+			//第一人称和第三人称切换,第一人称地图旋转，第三人称地图不旋转
+			$('#authorityImg').on('click', function() {
+				others = !others;
+				navi.followAngle = others;
+				if (others) {
+					$(this).find('img').attr('src', 'image/person_first.png');
+				} else {
+					$(this).find('img').attr('src', 'image/person_third.png');
+				}
+			});
+
+			//定位点跟随开关
+			$('#locImg').on('click',function() {
+				follow = !follow;
+				//设置是否跟随
+				navi.followPosition = follow;
+				if (follow) {
+					$(this).find('img').attr('src', 'image/position_cilck.png');
+				} else {
+					$(this).find('img').attr('src', 'image/position.png');
+				}
+
+			});
+
+
+		};
+	</script>
+</body>
+</html>

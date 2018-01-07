@@ -1,0 +1,1159 @@
+{
+    "viewtheme": {
+        "clearcolor": "241,242,247",
+        "clearalpha": "0.0"
+    },
+    "storetheme": [
+        {
+            "id": "0",
+            "color": "0,0,0",
+            "alpha": "1.0",
+            "strokecolor": "153,153,153",
+            "strokewidth": "1.0"
+        },
+        {
+            "id": "1",
+            "color": "255,102,51",
+            "alpha": "1.0",
+            "strokecolor": "153,153,153",
+            "strokewidth": "1.0"
+        },
+        {
+            "id": "10",
+            "color": "204,204,255",
+            "alpha": "1.0",
+            "strokecolor": "153,153,153",
+            "strokewidth": "1.0"
+        },
+        {
+            "id": "11",
+            "color": "153,204,255",
+            "alpha": "1.0",
+            "strokecolor": "153,153,153",
+            "strokewidth": "1.0"
+        },
+        {
+            "id": "12",
+            "color": "204,255,204",
+            "alpha": "1.0",
+            "strokecolor": "153,153,153",
+            "strokewidth": "1.0"
+        },
+        {
+            "id": "13",
+            "color": "204,204,255",
+            "alpha": "1.0",
+            "strokecolor": "153,153,153",
+            "strokewidth": "1.0"
+        },
+        {
+            "id": "14",
+            "color": "153,204,255",
+            "alpha": "1.0",
+            "strokecolor": "153,153,153",
+            "strokewidth": "1.0"
+        },
+        {
+            "id": "15",
+            "color": "204,255,204",
+            "alpha": "1.0",
+            "strokecolor": "153,153,153",
+            "strokewidth": "1.0"
+        },
+        {
+            "id": "16",
+            "color": "204,204,255",
+            "alpha": "1.0",
+            "strokecolor": "153,153,153",
+            "strokewidth": "1.0"
+        },
+        {
+            "id": "17",
+            "color": "153,204,255",
+            "alpha": "1.0",
+            "strokecolor": "153,153,153",
+            "strokewidth": "1.0"
+        },
+        {
+            "id": "18",
+            "color": "204,255,204",
+            "alpha": "1.0",
+            "strokecolor": "153,153,153",
+            "strokewidth": "1.0"
+        },
+        {
+            "id": "19",
+            "color": "204,204,255",
+            "alpha": "1.0",
+            "strokecolor": "153,153,153",
+            "strokewidth": "1.0"
+        },
+        {
+            "id": "20",
+            "color": "153,204,255",
+            "alpha": "1.0",
+            "strokecolor": "153,153,153",
+            "strokewidth": "1.0"
+        },
+        {
+            "id": "30",
+            "color": "204,255,204",
+            "alpha": "1.0",
+            "strokecolor": "153,153,153",
+            "strokewidth": "1.0"
+        }
+    ],
+    "floorapply": [
+        {
+            "floorid": "0",
+            "typeapply": [
+                {
+                    "type": "0",
+                    "normalid": "0",
+                    "selectedid": "1"
+                },
+                {
+                    "type": "100000,100100,100101,100102,100103,100104,100105,100200,100201,100202,100203,100204,100205,100300,100400",
+                    "normalid": "10",
+                    "selectedid": "1"
+                },
+                {
+                    "type": "110000,110100,110200,110300,110400",
+                    "normalid": "11",
+                    "selectedid": "1"
+                },
+                {
+                    "type": "120000,120100,120200,120300",
+                    "normalid": "12",
+                    "selectedid": "1"
+                },
+                {
+                    "type": "130000,130100,130200,130300",
+                    "normalid": "13",
+                    "selectedid": "1"
+                },
+                {
+                    "type": "140000,140100,140200,140300,140400,140500,140600",
+                    "normalid": "14",
+                    "selectedid": "1"
+                },
+                {
+                    "type": "150000,150100,150200,150300,150400,150500,150600",
+                    "normalid": "15",
+                    "selectedid": "1"
+                },
+                {
+                    "type": "160000,160100,160200,160300,160400",
+                    "normalid": "16",
+                    "selectedid": "1"
+                },
+                {
+                    "type": "170000,173100,173101,173102,173103,173104,173015,173106,173200,173201,173202,173203,173204,173205,173300,173301,173302,173303,173304,173305,173306,173400",
+                    "normalid": "17",
+                    "selectedid": "1"
+                },
+                {
+                    "type": "180000,180100,180200,180300,180400,180500",
+                    "normalid": "18",
+                    "selectedid": "1"
+                },
+                {
+                    "type": "190000,190100,190200,190300,190400,190500,190600",
+                    "normalid": "19",
+                    "selectedid": "1"
+                },
+                {
+                    "type": "300000",
+                    "normalid": "30",
+                    "selectedid": "1"
+                },
+                {
+                    "type": "200000,200100,200101,200102,200103,200104,200105,200200,200201,200202,200203,200204,200205,200206",
+                    "normalid": "20",
+                    "selectedid": "1"
+                }
+            ]
+        }
+    ],
+    "storeapply": [
+        {
+            "floorid": "1",
+            "nameapply": [
+                {
+                    "storeid": "103329948,103329949,103329950,103329951,103329952",
+                    "normalid": "0",
+                    "selectedid": "1"
+                },
+                {}
+            ]
+        },
+        {}
+    ],
+    "extenttheme": [
+        {
+            "id": "0",
+            "color": "255,255,255",
+            "alpha": "1.0"
+        },
+        {
+            "id": "1",
+            "color": "242,42,141",
+            "alpha": "1.0"
+        }
+    ],
+    "floorextentapply": [
+        {
+            "floorid": "0",
+            "typeapply": [
+                {
+                    "type": "0",
+                    "normalid": "0",
+                    "selectedid": "1"
+                }
+            ]
+        }
+    ],
+    "extentapply": [
+        {
+            "floorid": "1",
+            "nameapply": [
+                {
+                    "storeid": "103329948,103329949,103329950,103329951,103329952",
+                    "normalid": "0",
+                    "selectedid": "1"
+                }
+            ]
+        }
+    ],
+    "storelabeltheme": [
+        {
+            "id": "0",
+            "fillcolor": "0,0,0",
+            "strokecolor": "255,255,255",
+            "alpha": "1",
+            "fontsize": "12.0"
+        },
+        {
+            "id": "1",
+            "fillcolor": "242,42,141",
+            "strokecolor": "255,255,255",
+            "alpha": "1.0",
+            "fontsize": "12.0"
+        }
+    ],
+    "floorstorelabelapply": [
+        {
+            "floorid": "0",
+            "typeapply": [
+                {
+                    "type": "0",
+                    "normalid": "0",
+                    "selectedid": "1"
+                }
+            ]
+        }
+    ],
+    "storelabelapply": [
+        {
+            "floorid": "1",
+            "nameapply": [
+                {
+                    "storeid": "103329948,103329949,103329950,103329951,103329952",
+                    "normalid": "0",
+                    "selectedid": "1"
+                }
+            ]
+        }
+    ],
+    "poiimagetheme": [
+        {
+            "id": "0",
+            "imagename": "0.fmi",
+            "height": "38"
+        },
+        {
+            "id": "100001",
+            "imagename": "100001.fmi",
+            "height": "38"		
+        },
+        {
+            "id": "100002",
+            "imagename": "100002.fmi",
+            "height": "38"
+        },
+        {
+            "id": "100003",
+            "imagename": "100003.fmi",
+            "height": "38"
+        },
+        {
+            "id": "100004",
+            "imagename": "100004.fmi",
+            "height": "38"
+        },
+        {
+            "id": "100005",
+            "imagename": "100005.fmi",
+            "height": "38"
+        },
+        {
+            "id": "100006",
+            "imagename": "100006.fmi",
+            "height": "38"
+        },
+        {
+            "id": "100007",
+            "imagename": "100007.fmi",
+            "height": "38"
+        },
+        {
+            "id": "110001",
+            "imagename": "110001.fmi",
+            "height": "38"
+        },
+        {
+            "id": "110002",
+            "imagename": "110002.fmi",
+            "height": "38"
+        },
+        {
+            "id": "110003",
+            "imagename": "110003.fmi",
+            "height": "38"
+        },
+        {
+            "id": "110004",
+            "imagename": "110004.fmi",
+            "height": "38"
+        },
+        {
+            "id": "110005",
+            "imagename": "110005.fmi",
+            "height": "38"
+        },
+        {
+            "id": "120001",
+            "imagename": "120001.fmi",
+            "height": "38"
+        },
+        {
+            "id": "120002",
+            "imagename": "120002.fmi",
+            "height": "38"
+        },
+        {
+            "id": "120003",
+            "imagename": "120003.fmi",
+            "height": "38"
+        },
+        {
+            "id": "120004",
+            "imagename": "120004.fmi",
+            "height": "38"
+        },
+        {
+            "id": "120005",
+            "imagename": "120005.fmi",
+            "height": "38"
+        },
+        {
+            "id": "120006",
+            "imagename": "120006.fmi",
+            "height": "38"
+        },
+        {
+            "id": "120007",
+            "imagename": "120007.fmi",
+            "height": "38"
+        },
+        {
+            "id": "120008",
+            "imagename": "120008.fmi",
+            "height": "38"
+        },
+        {
+            "id": "120009",
+            "imagename": "120009.fmi",
+            "height": "38"
+        },
+        {
+            "id": "130001",
+            "imagename": "130001.fmi",
+            "height": "38"
+        },
+        {
+            "id": "130002",
+            "imagename": "130002.fmi",
+            "height": "38"
+        },
+        {
+            "id": "130003",
+            "imagename": "130003.fmi",
+            "height": "38"
+        },
+        {
+            "id": "130004",
+            "imagename": "130004.fmi",
+            "height": "38"
+        },
+        {
+            "id": "130005",
+            "imagename": "130005.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140001",
+            "imagename": "140001.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140002",
+            "imagename": "140002.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140003",
+            "imagename": "140003.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140004",
+            "imagename": "140004.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140005",
+            "imagename": "140005.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140006",
+            "imagename": "140006.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140007",
+            "imagename": "140007.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140008",
+            "imagename": "140008.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140009",
+            "imagename": "140009.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140010",
+            "imagename": "140010.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140011",
+            "imagename": "140011.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140012",
+            "imagename": "140012.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140013",
+            "imagename": "140013.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140014",
+            "imagename": "140014.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140015",
+            "imagename": "140015.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140016",
+            "imagename": "140016.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140017",
+            "imagename": "140017.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140018",
+            "imagename": "140018.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140019",
+            "imagename": "140019.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140020",
+            "imagename": "140020.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140021",
+            "imagename": "140021.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140022",
+            "imagename": "140022.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140023",
+            "imagename": "140023.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140024",
+            "imagename": "140024.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140025",
+            "imagename": "140025.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140026",
+            "imagename": "140026.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140027",
+            "imagename": "140027.fmi",
+            "height": "38"
+        },
+        {
+            "id": "140028",
+            "imagename": "140028.fmi",
+            "height": "38"
+        },
+        {
+            "id": "150001",
+            "imagename": "150001.fmi",
+            "height": "38"
+        },
+        {
+            "id": "150002",
+            "imagename": "150002.fmi",
+            "height": "38"
+        },
+        {
+            "id": "150003",
+            "imagename": "150003.fmi",
+            "height": "38"
+        },
+        {
+            "id": "150004",
+            "imagename": "150004.fmi",
+            "height": "38"
+        },
+        {
+            "id": "150005",
+            "imagename": "150005.fmi",
+            "height": "38"
+        },
+        {
+            "id": "150006",
+            "imagename": "150006.fmi",
+            "height": "38"
+        },
+        {
+            "id": "150007",
+            "imagename": "150007.fmi",
+            "height": "38"
+        },
+        {
+            "id": "150009",
+            "imagename": "150009.fmi",
+            "height": "38"
+        },
+        {
+            "id": "150010",
+            "imagename": "150010.fmi",
+            "height": "38"
+        },
+        {
+            "id": "150011",
+            "imagename": "150011.fmi",
+            "height": "38"
+        },
+        {
+            "id": "150012",
+            "imagename": "150012.fmi",
+            "height": "38"
+        },
+        {
+            "id": "150013",
+            "imagename": "150013.fmi",
+            "height": "38"
+        },
+        {
+            "id": "150014",
+            "imagename": "150014.fmi",
+            "height": "38"
+        },
+        {
+            "id": "160001",
+            "imagename": "160001.fmi",
+            "height": "38"
+        },
+        {
+            "id": "160002",
+            "imagename": "160002.fmi",
+            "height": "38"
+        },
+        {
+            "id": "160003",
+            "imagename": "160003.fmi",
+            "height": "38"
+        },
+        {
+            "id": "160004",
+            "imagename": "160004.fmi",
+            "height": "38"
+        },
+        {
+            "id": "160005",
+            "imagename": "160005.fmi",
+            "height": "38"
+        },
+        {
+            "id": "160006",
+            "imagename": "160006.fmi",
+            "height": "38"
+        },
+        {
+            "id": "160007",
+            "imagename": "160007.fmi",
+            "height": "38"
+        },
+        {
+            "id": "160008",
+            "imagename": "160008.fmi",
+            "height": "38"
+        },
+        {
+            "id": "170001",
+            "imagename": "170001.fmi",
+            "height": "38"
+        },
+        {
+            "id": "170002",
+            "imagename": "170002.fmi",
+            "height": "38"
+        },
+        {
+            "id": "170003",
+            "imagename": "170003.fmi",
+            "height": "38"
+        },
+        {
+            "id": "170004",
+            "imagename": "170004.fmi",
+            "height": "38"
+        },
+        {
+            "id": "170005",
+            "imagename": "170005.fmi",
+            "height": "38"
+        },
+        {
+            "id": "170006",
+            "imagename": "170006.fmi",
+            "height": "38"
+        },
+        {
+            "id": "180001",
+            "imagename": "180001.fmi",
+            "height": "38"
+        },
+        {
+            "id": "180002",
+            "imagename": "180002.fmi",
+            "height": "38"
+        },
+        {
+            "id": "180003",
+            "imagename": "180003.fmi",
+            "height": "38"
+        },
+        {
+            "id": "180004",
+            "imagename": "180004.fmi",
+            "height": "38"
+        },
+        {
+            "id": "180005",
+            "imagename": "180005.fmi",
+            "height": "38"
+        }
+    ],
+    "floorpoiimageapply": [
+        {
+            "floorid": "0",
+            "typeapply": [
+                {
+                    "type": "0",
+                    "normalid": "0",
+                    "selectedid": "0"
+                },
+                {
+                    "type": "100001",
+                    "normalid": "100001",
+                    "selectedid": "100001"
+                },
+                {
+                    "type": "100002",
+                    "normalid": "100002",
+                    "selectedid": "100002"
+                },
+                {
+                    "type": "100003",
+                    "normalid": "100003",
+                    "selectedid": "100003"
+                },
+                {
+                    "type": "100004",
+                    "normalid": "100004",
+                    "selectedid": "100004"
+                },
+                {
+                    "type": "100005",
+                    "normalid": "100005",
+                    "selectedid": "100005"
+                },
+                {
+                    "type": "100006",
+                    "normalid": "100006",
+                    "selectedid": "100006"
+                },
+                {
+                    "type": "100007",
+                    "normalid": "100007",
+                    "selectedid": "100007"
+                },
+                {
+                    "type": "110001",
+                    "normalid": "110001",
+                    "selectedid": "110001"
+                },
+                {
+                    "type": "110002",
+                    "normalid": "110002",
+                    "selectedid": "110002"
+                },
+                {
+                    "type": "110003",
+                    "normalid": "110003",
+                    "selectedid": "110003"
+                },
+                {
+                    "type": "110004",
+                    "normalid": "110004",
+                    "selectedid": "110004"
+                },
+                {
+                    "type": "110005",
+                    "normalid": "110005",
+                    "selectedid": "110005"
+                },
+                {
+                    "type": "120001",
+                    "normalid": "120001",
+                    "selectedid": "120001"
+                },
+                {
+                    "type": "120002",
+                    "normalid": "120002",
+                    "selectedid": "120002"
+                },
+                {
+                    "type": "120003",
+                    "normalid": "120003",
+                    "selectedid": "120003"
+                },
+                {
+                    "type": "120004",
+                    "normalid": "120004",
+                    "selectedid": "120004"
+                },
+                {
+                    "type": "120005",
+                    "normalid": "120005",
+                    "selectedid": "120005"
+                },
+                {
+                    "type": "120006",
+                    "normalid": "120006",
+                    "selectedid": "120006"
+                },
+                {
+                    "type": "120007",
+                    "normalid": "120007",
+                    "selectedid": "120007"
+                },
+                {
+                    "type": "120008",
+                    "normalid": "120008",
+                    "selectedid": "120008"
+                },
+                {
+                    "type": "120009",
+                    "normalid": "120009",
+                    "selectedid": "120009"
+                },
+                {
+                    "type": "130001",
+                    "normalid": "130001",
+                    "selectedid": "130001"
+                },
+                {
+                    "type": "130002",
+                    "normalid": "130002",
+                    "selectedid": "130002"
+                },
+                {
+                    "type": "130003",
+                    "normalid": "130003",
+                    "selectedid": "130003"
+                },
+                {
+                    "type": "130004",
+                    "normalid": "130004",
+                    "selectedid": "130004"
+                },
+                {
+                    "type": "130005",
+                    "normalid": "130005",
+                    "selectedid": "130005"
+                },
+                {
+                    "type": "140001",
+                    "normalid": "140001",
+                    "selectedid": "140001"
+                },
+                {
+                    "type": "140002",
+                    "normalid": "140002",
+                    "selectedid": "140002"
+                },
+                {
+                    "type": "140003",
+                    "normalid": "140003",
+                    "selectedid": "140003"
+                },
+                {
+                    "type": "140004",
+                    "normalid": "140004",
+                    "selectedid": "140004"
+                },
+                {
+                    "type": "140005",
+                    "normalid": "140005",
+                    "selectedid": "140005"
+                },
+                {
+                    "type": "140006",
+                    "normalid": "140006",
+                    "selectedid": "140006"
+                },
+                {
+                    "type": "140007",
+                    "normalid": "140007",
+                    "selectedid": "140007"
+                },
+                {
+                    "type": "140008",
+                    "normalid": "140008",
+                    "selectedid": "140008"
+                },
+                {
+                    "type": "140009",
+                    "normalid": "140009",
+                    "selectedid": "140009"
+                },
+                {
+                    "type": "140010",
+                    "normalid": "140010",
+                    "selectedid": "140010"
+                },
+                {
+                    "type": "140011",
+                    "normalid": "140011",
+                    "selectedid": "140011"
+                },
+                {
+                    "type": "140012",
+                    "normalid": "140012",
+                    "selectedid": "140012"
+                },
+                {
+                    "type": "140013",
+                    "normalid": "140013",
+                    "selectedid": "140013"
+                },
+                {
+                    "type": "140014",
+                    "normalid": "140014",
+                    "selectedid": "140014"
+                },
+                {
+                    "type": "140015",
+                    "normalid": "140015",
+                    "selectedid": "140015"
+                },
+                {
+                    "type": "140016",
+                    "normalid": "140016",
+                    "selectedid": "140016"
+                },
+                {
+                    "type": "140017",
+                    "normalid": "140017",
+                    "selectedid": "140017"
+                },
+                {
+                    "type": "140018",
+                    "normalid": "140018",
+                    "selectedid": "140018"
+                },
+                {
+                    "type": "140019",
+                    "normalid": "140019",
+                    "selectedid": "140019"
+                },
+                {
+                    "type": "140020",
+                    "normalid": "140020",
+                    "selectedid": "140020"
+                },
+                {
+                    "type": "140021",
+                    "normalid": "140021",
+                    "selectedid": "140021"
+                },
+                {
+                    "type": "140022",
+                    "normalid": "140022",
+                    "selectedid": "140022"
+                },
+                {
+                    "type": "140023",
+                    "normalid": "140023",
+                    "selectedid": "140023"
+                },
+                {
+                    "type": "140024",
+                    "normalid": "140024",
+                    "selectedid": "140024"
+                },
+                {
+                    "type": "140025",
+                    "normalid": "140025",
+                    "selectedid": "140025"
+                },
+                {
+                    "type": "140026",
+                    "normalid": "140026",
+                    "selectedid": "140026"
+                },
+                {
+                    "type": "140027",
+                    "normalid": "140027",
+                    "selectedid": "140027"
+                },
+                {
+                    "type": "140028",
+                    "normalid": "140028",
+                    "selectedid": "140028"
+                },
+                {
+                    "type": "150001",
+                    "normalid": "150001",
+                    "selectedid": "150001"
+                },
+                {
+                    "type": "150002",
+                    "normalid": "150002",
+                    "selectedid": "150002"
+                },
+                {
+                    "type": "150003",
+                    "normalid": "150003",
+                    "selectedid": "150003"
+                },
+                {
+                    "type": "150004",
+                    "normalid": "150004",
+                    "selectedid": "150004"
+                },
+                {
+                    "type": "150005",
+                    "normalid": "150005",
+                    "selectedid": "150005"
+                },
+                {
+                    "type": "150006",
+                    "normalid": "150006",
+                    "selectedid": "150006"
+                },
+                {
+                    "type": "150007",
+                    "normalid": "150007",
+                    "selectedid": "150007"
+                },
+                {
+                    "type": "150009",
+                    "normalid": "150009",
+                    "selectedid": "150009"
+                },
+                {
+                    "type": "150010",
+                    "normalid": "150010",
+                    "selectedid": "150010"
+                },
+                {
+                    "type": "150011",
+                    "normalid": "150011",
+                    "selectedid": "150011"
+                },
+                {
+                    "type": "150012",
+                    "normalid": "150012",
+                    "selectedid": "150012"
+                },
+                {
+                    "type": "150013",
+                    "normalid": "150013",
+                    "selectedid": "150013"
+                },
+                {
+                    "type": "150014",
+                    "normalid": "150014",
+                    "selectedid": "150014"
+                },
+                {
+                    "type": "160001",
+                    "normalid": "160001",
+                    "selectedid": "160001"
+                },
+                {
+                    "type": "160002",
+                    "normalid": "160002",
+                    "selectedid": "160002"
+                },
+                {
+                    "type": "160003",
+                    "normalid": "160003",
+                    "selectedid": "160003"
+                },
+                {
+                    "type": "160004",
+                    "normalid": "160004",
+                    "selectedid": "160004"
+                },
+                {
+                    "type": "160005",
+                    "normalid": "160005",
+                    "selectedid": "160005"
+                },
+                {
+                    "type": "160006",
+                    "normalid": "160006",
+                    "selectedid": "160006"
+                },
+                {
+                    "type": "160007",
+                    "normalid": "160007",
+                    "selectedid": "160007"
+                },
+                {
+                    "type": "160008",
+                    "normalid": "160008",
+                    "selectedid": "160008"
+                },
+                {
+                    "type": "170001",
+                    "normalid": "170001",
+                    "selectedid": "170001"
+                },
+                {
+                    "type": "170002",
+                    "normalid": "170002",
+                    "selectedid": "170002"
+                },
+                {
+                    "type": "170003",
+                    "normalid": "170003",
+                    "selectedid": "170003"
+                },
+                {
+                    "type": "170004",
+                    "normalid": "170004",
+                    "selectedid": "170004"
+                },
+                {
+                    "type": "170005",
+                    "normalid": "170005",
+                    "selectedid": "170005"
+                },
+                {
+                    "type": "170006",
+                    "normalid": "170006",
+                    "selectedid": "170006"
+                },
+                {
+                    "type": "180001",
+                    "normalid": "180001",
+                    "selectedid": "180001"
+                },
+                {
+                    "type": "180002",
+                    "normalid": "180002",
+                    "selectedid": "180002"
+                },
+                {
+                    "type": "180003",
+                    "normalid": "180003",
+                    "selectedid": "180003"
+                },
+                {
+                    "type": "180004",
+                    "normalid": "180004",
+                    "selectedid": "180004"
+                },
+                {
+                    "type": "180005",
+                    "normalid": "180005",
+                    "selectedid": "180005"
+                }
+            ]
+        }
+    ],
+    "poiimageapply": [
+        {
+            "floorid": "1",
+            "nameapply": [
+                {
+                    "poiid": "103329948,103329949,103329950,103329951,103329952",
+                    "normalid": "0",
+                    "selectedid": "0"
+                }
+            ]
+        }
+    ]
+}
